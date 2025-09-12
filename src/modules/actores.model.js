@@ -1,0 +1,3 @@
+//Nombre
+//Peliculas participadas
+//Sueldo

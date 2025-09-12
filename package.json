@@ -1,0 +1,28 @@
+{
+  "name": "mongoose-farina-eric",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type":"module",
+  "scripts": {
+    "dev": "node --watch app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developeric/mongoose-farina-eric.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/developeric/mongoose-farina-eric/issues"
+  },
+  "homepage": "https://github.com/developeric/mongoose-farina-eric#readme",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "mongoose": "^8.18.1"
+  },
+  "devDependencies": {},
+  "description": ""
+}
