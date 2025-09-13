@@ -1,3 +1,0 @@
-//Nombre
-//Edad
-//Premios

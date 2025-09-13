@@ -1,3 +1,0 @@
-//Tipo
-//Duracion
-//Año

@@ -2,7 +2,7 @@
   "name": "mongoose-farina-eric",
   "version": "1.0.0",
   "main": "app.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "dev": "node --watch app.js"
   },

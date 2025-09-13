@@ -1,3 +1,0 @@
-//Autor
-//Idioma
-//Contenido
