@@ -15,7 +15,7 @@ const GuionSchema = new Schema({
     },
     year:{
         type: Number,
-        required
+        required: true
     }
 });
 
