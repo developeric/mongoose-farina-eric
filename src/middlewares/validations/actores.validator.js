@@ -11,11 +11,8 @@ export const createActoresValidator = [
   body("age")
     .notEmpty()
     .withMessage("este Campo no puede estar Vacío")
-    .isInt()
-    .withMessage("Tiene que ser un Entero")
-    .custom(() => {
-      //aca iría q sea mayor o menor de X edad
-    }),
+    .isInt({ min: 0 })
+    .withMessage("Tiene que ser un Entero"),
   body("salary")
     .notEmpty()
     .withMessage("Este Campo no puede estar Vacío")
