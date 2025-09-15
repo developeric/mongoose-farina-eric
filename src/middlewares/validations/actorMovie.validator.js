@@ -2,7 +2,7 @@ import { body, param } from "express-validator";
 
 //Create
 export const createActoresMovieValidator = [
-  body("actor")
+  body("actores")
     .isMongoId()
     .withMessage("Tiene que ser un MongoID")
     .notEmpty()

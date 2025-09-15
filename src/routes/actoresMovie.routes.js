@@ -5,7 +5,7 @@ import { createActorMovie, deleteActorMovie, findActorMovie, findActorMovieByPK,
 
 export const routerActorMovie = Router();
 
-routerActorMovie.post("/actormovie/:id",createActoresMovieValidator,aplicarValidation,createActorMovie)
+routerActorMovie.post("/actormovie",createActoresMovieValidator,aplicarValidation,createActorMovie)
 routerActorMovie.put("/actormovie/:id",updateActoresMovieValidator,aplicarValidation,updateActorMovie)
 routerActorMovie.get("/actormovie",aplicarValidation,findActorMovie)
 routerActorMovie.get("/actormovie/actor/:id/movie/:id",findActoresMovieByPKValidator,aplicarValidation,findActorMovieByPK)

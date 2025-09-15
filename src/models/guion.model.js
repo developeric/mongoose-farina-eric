@@ -18,6 +18,7 @@ const GuionSchema = new Schema(
       type: Number,
       required: true,
     },
+    //
     pelicula: {
       type: Types.ObjectId,
       ref: "Movie",
@@ -31,3 +32,15 @@ const GuionSchema = new Schema(
 );
 
 export const GuionModel = model("Guion", GuionSchema);
+
+
+
+
+//MODELO DE COMO PROBAR
+
+// {
+// 	"lenguage":"English",
+// 	"author":"Borges",
+// 	"year":1867,
+// 	"pelicula":"68c731c682241d4ca850ac0b"
+// }

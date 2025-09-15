@@ -51,7 +51,7 @@ export const updateActorMovie = async (req, res) => {
 //FindAll
 export const findActorMovie = async (req, res) => {
   try {
-    const actormovie = await ActorMovieModel.find().populate("actores movies");
+    const actormovie = await ActorMovieModel.find().populate("actores movies","-salary");
     if (!actormovie) {
       return res
         .status(404)
@@ -91,3 +91,23 @@ export const deleteActorMovie = async (req, res) => {
     return res.status(500).json({ msg: "Internal Error Server" });
   }
 };
+
+
+//VAMOAVER
+
+export const ActorAndMovie = async(req,res)=>{
+    const{actores,movies}= req.params
+    try {
+        const updateActors = ActorMovieModel.findByIdAndUpdate(actores,{
+            $addToSet:{peliculas:movies}
+        },{new:true}).populate("movies").populate("actores")
+        if(!updateActors){
+            return res.status(400).json({msg:"Algo salió mal"})
+        }
+        return res.status(200).json({ok:true,msg:"Actualizado?",data:updateActors})
+    } catch (error) {
+        return res.status(500).json({msg:"Internal Server Error"})
+    }
+}
+
+//Queria hacer una especie de JOIN

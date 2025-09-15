@@ -54,7 +54,7 @@ export const updateActor = async (req, res) => {
 //FindAll
 export const findActor = async (req, res) => {
   try {
-    const actor = await ActorModel.find().populate("pelicula", "-_id -actores");
+    const actor = await ActorModel.find();
     if (!actor) {
       return res.status(400).json({ msg: "No Encontrado", data: null });
     }

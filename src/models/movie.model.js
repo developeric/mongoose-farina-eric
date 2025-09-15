@@ -36,3 +36,23 @@ const MovieSchema = new Schema(
 );
 
 export const MovieModel = model("Movie", MovieSchema);
+
+
+
+
+
+
+
+
+
+
+
+//MODELO DE COMO PROBAR
+
+// {
+// 	"name":"Cars",
+// 	"year":2011,
+// 	"lenguage":"English",
+// 	"duration":120,
+// 	"director":"68c75c8e922f9c82b7b63ef8"
+// }

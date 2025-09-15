@@ -53,3 +53,25 @@ const DirectorSchema = new Schema(
 export const MitaisesModel = model("Mataises", mitaisesdeldirectorSchema);
 //Director
 export const DirectorModel = model("Director", DirectorSchema);
+
+
+
+
+
+
+//MODELO DE COMO COLOCAR Y PROBAR
+
+// {
+// 	"name":"matias",
+// 	"age":1999,
+// 	"movies":100,
+// 	"extraData":{
+// 		"married":true,
+// 		"dni":12345678,
+// 		"firstMovie":"primera movie",
+// 		"hijos":[{
+// 			"name":"Pedro",
+// 			"color":false
+// 		}]
+		
+// }}

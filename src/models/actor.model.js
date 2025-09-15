@@ -28,3 +28,12 @@ const ActorSchema = new Schema(
 );
 
 export const ActorModel = model("Actores", ActorSchema);
+
+
+//MODELO DE COMO PROBAR
+
+// {
+// 	"name":"Eric Farina",
+// 	"age":18,
+// 	"salary":80000
+// }
