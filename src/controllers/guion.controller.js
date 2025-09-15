@@ -31,7 +31,7 @@ export const updateGuion = async (req, res) => {
   try {
     const guion = await GuionModel.findByIdAndUpdate(
       id,
-      { lenguage,author,year },
+      { lenguage, author, year },
       { new: true }
     );
     if (!guion) {
@@ -50,7 +50,11 @@ export const updateGuion = async (req, res) => {
 //FindAll
 export const findGuion = async (req, res) => {
   try {
-    const guion = await GuionModel.find();
+    const guion = await GuionModel.find().populate({
+      path: "pelicula",
+      select: "name year lenguage duration actores",
+      populate: { path: "actores"},
+    });
     if (!guion) {
       return res
         .status(404)

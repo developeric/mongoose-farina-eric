@@ -15,10 +15,16 @@ const ActorSchema = new Schema(
       type: Number,
       required: true,
     },
+    //las peliculas que realizó
+    pelicula:{
+      type:[Types.ObjectId],
+      ref:"ActorMovie",
+      required:true
+    }
   },
   {
     versionKey: false,
   }
 );
 
-export const ActorModel = model("Actor", ActorSchema);
+export const ActorModel = model("Actores", ActorSchema);

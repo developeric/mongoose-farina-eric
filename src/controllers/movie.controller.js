@@ -45,7 +45,8 @@ export const updateMovie = async (req, res) => {
 //FindAll
 export const findMovie = async (req, res) => {
   try {
-    const movie = await MovieModel.find();
+    const movie = await MovieModel.find() //se hace para excluir X propiedad
+    .populate("director","-_id"); //me trae el modelo al que hace referencia pero me excluye X propiedad
     if (!movie) {
       return res
         .status(404)

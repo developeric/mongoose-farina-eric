@@ -1,4 +1,4 @@
-import { ActorModel } from "../models/actores.model.js";
+import { ActorModel } from "../models/actor.model.js";
 
 ////////////////////////////////////
 //                                //
@@ -54,13 +54,13 @@ export const updateActor = async (req, res) => {
 //FindAll
 export const findActor = async (req, res) => {
   try {
-    const actor = await ActorModel.find();
+    const actor = await ActorModel.find().populate("pelicula","-_id -actores");
     if (!actor) {
       return res.status(400).json({ msg: "No Encontrado", data: null });
     }
     return res
       .status(200)
-      .json({ ok: true, msg: "Obtenido Correctamente", data: director });
+      .json({ ok: true, msg: "Obtenido Correctamente", data: actor });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ msg: "Internal Server Error" });

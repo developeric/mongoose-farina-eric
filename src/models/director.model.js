@@ -1,20 +1,20 @@
 import { Schema, model, Types, Mongoose } from "mongoose";
 
-const DirectorSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  age: {
-    type: Number,
-    required: false,
-  },
-  movies: {
-    type: Number,
-    required: true,
-  },
-  extraData: [
-    {
+const DirectorSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    age: {
+      type: Number,
+      required: false,
+    },
+    movies: {
+      type: Number,
+      required: true,
+    },
+    extraData: {
       married: {
         type: Boolean,
         required: true,
@@ -30,7 +30,10 @@ const DirectorSchema = new Schema({
         unique: true,
       },
     },
-  ],
-});
+  },
+  {
+    versionKey: false,
+  }
+);
 
-export const DirectorModel = model("director", DirectorSchema);
+export const DirectorModel = model("Director", DirectorSchema);

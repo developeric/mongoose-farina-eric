@@ -1,6 +1,7 @@
 import { body, param } from "express-validator";
 import { MovieModel } from "../../models/movie.model.js";
 
+//Create
 export const createMovieValidator = [
   body("name")
     .notEmpty()
@@ -28,6 +29,7 @@ export const createMovieValidator = [
     .withMessage("Este Campo tiene que ser un Entero (minutos)"),
 ];
 
+//Update
 export const updateMovieValidator = [
   body("name")
     .optional()
@@ -59,16 +61,34 @@ export const updateMovieValidator = [
     .withMessage("Este Campo tiene que ser un Entero (minutos)"),
 ];
 
+//FindByID
 export const findMovieByPKValidator = [
   param("id")
-    .isInt()
-    .withMessage("Tiene que ser un Entero")
+      .isMongoId()
+    .withMessage("Tiene que ser un MongoID")
+    .notEmpty()
+    .withMessage("No puede Estar Vacío")
     .notEmpty()
     .withMessage("No puede estar Vacío")
-    .custom(async(value)=>{
-      const existe = await MovieModel.findById(value)
-      if(!existe){
-        return res.status(404).json({msg:"No se ha Encontrado"})
+    .custom(async (value) => {
+      const existe = await MovieModel.findById(value);
+      if (!existe) {
+        return res.status(404).json({ msg: "No se ha Encontrado" });
       }
+      return true;
+    }),
+];
+
+//Delete
+export const deleteMovieValidator = [
+  param("id")
+    .isMongoId()
+    .withMessage("Tiene que ser un MongoID")
+    .custom(async (id) => {
+      const existente = await MovieModel.findById(id);
+      if (!existente) {
+        return res.status(404).json({ msg: "No encontrado" });
+      }
+      return true;
     }),
 ];
