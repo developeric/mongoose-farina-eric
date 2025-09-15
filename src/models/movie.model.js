@@ -24,11 +24,11 @@ const MovieSchema = new Schema(
     },
 
     //relacion M:M
-    actores: {
-      type: [Types.ObjectId],
-      ref: "ActorMovie",
-      required: true,
-    },
+    // actores: {
+    //   type: [Types.ObjectId],
+    //   ref: "ActorMovie",
+    //   required: true,
+    // },
   },
   {
     versionKey: false,

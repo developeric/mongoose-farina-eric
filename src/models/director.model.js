@@ -1,5 +1,17 @@
 import { Schema, model, Types, Mongoose } from "mongoose";
 
+//Embebido
+const mitaisesdeldirectorSchema = new Schema({
+  name: {
+    type: String,
+  },
+  color: {
+    type: Boolean, //Blanco: true
+    required: true, //Negro: false
+  },
+});
+
+//Director
 const DirectorSchema = new Schema(
   {
     name: {
@@ -28,12 +40,16 @@ const DirectorSchema = new Schema(
         type: String,
         required: true,
         unique: true,
-      },
+      },    hijos:[mitaisesdeldirectorSchema]
     },
+    //los mitaises
+
   },
   {
     versionKey: false,
   }
 );
-
+//mitaises del director
+export const MitaisesModel = model("Mataises", mitaisesdeldirectorSchema);
+//Director
 export const DirectorModel = model("Director", DirectorSchema);
