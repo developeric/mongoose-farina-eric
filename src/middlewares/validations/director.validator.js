@@ -145,7 +145,8 @@ export const findDirectorByPKValidator = [
     .custom(async (id) => {
       const existente = await DirectorModel.findById(id);
       if (!existente) {
-        return res.status(404).json({ msg: "No encontrado" });
+        throw new Error("error")
+
       }
       return true;
     }),

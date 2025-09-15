@@ -26,7 +26,7 @@ export const createGuion = async (req, res) => {
 
 //Update
 export const updateGuion = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   const { lenguage, author, year } = req.body;
   try {
     const guion = await GuionModel.findByIdAndUpdate(

@@ -26,7 +26,7 @@ export const createActor = async (req, res) => {
 
 //Update
 export const updateActor = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   const { name, age, salary } = req.body;
   try {
     const actor = await ActorModel.findByIdAndUpdate(
@@ -54,7 +54,7 @@ export const updateActor = async (req, res) => {
 //FindAll
 export const findActor = async (req, res) => {
   try {
-    const actor = await ActorModel.find().populate("pelicula","-_id -actores");
+    const actor = await ActorModel.find().populate("pelicula", "-_id -actores");
     if (!actor) {
       return res.status(400).json({ msg: "No Encontrado", data: null });
     }
@@ -69,7 +69,7 @@ export const findActor = async (req, res) => {
 
 //FindByPK
 export const findActorByPK = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   try {
     const actor = await ActorModel.findById(id);
     if (!actor) {
@@ -86,9 +86,13 @@ export const findActorByPK = async (req, res) => {
 
 //Delete
 export const deleteActor = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   try {
     const actor = await ActorModel.findByIdAndDelete(id);
+    if (!actor) {
+      console.log(error);
+      return res.status(400).json({ msg: "No se pudo Borrar", data: null });
+    }
     return res
       .status(200)
       .json({ ok: true, msg: "Borrado Correctamente", data: actor });

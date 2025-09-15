@@ -27,7 +27,7 @@ export const createDirector = async (req, res) => {
 
 //Update
 export const updateDirector = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   const { name, age, movies, extraData } = req.body;
   const { married, dni, firstMovie } = extraData;
   try {
@@ -69,7 +69,7 @@ export const findDirector = async (req, res) => {
 
 //FindByPK
 export const findDirectorByPK = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   try {
     const director = await DirectorModel.findById(id);
     if (!director) {
@@ -86,7 +86,7 @@ export const findDirectorByPK = async (req, res) => {
 
 //Delete
 export const deleteDirector = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   try {
     const director = await DirectorModel.findByIdAndDelete(id);
     return res
